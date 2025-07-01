@@ -41,7 +41,7 @@ public struct ExpandableText: View {
     internal var moreButtonText: String = "more"
     internal var moreButtonFont: Font?
     internal var moreButtonColor: Color = .accentColor
-    internal var expandAnimation: Animation = .default
+    internal var expandAnimation: Animation = .smooth
     internal var collapseEnabled: Bool = false
     internal var trimMultipleNewlinesWhenTruncated: Bool = true
     
@@ -58,7 +58,7 @@ public struct ExpandableText: View {
         content
             .lineLimit(isExpanded ? nil : lineLimit)
             .applyingTruncationMask(size: moreTextSize, enabled: shouldShowMoreButton)
-            .readSize { size in
+            .readSizing { size in
                 truncatedSize = size
                 isTruncated = truncatedSize != intrinsicSize
             }
@@ -73,17 +73,20 @@ public struct ExpandableText: View {
                     }
             )
             .background(
-                Text(moreButtonText)
-                    .font(moreButtonFont ?? font)
+                ESText(moreButtonText)
                     .hidden()
                     .readSize { moreTextSize = $0 }
             )
             .contentShape(Rectangle())
             .onTapGesture {
-                if (isExpanded && collapseEnabled) ||
-                     shouldShowMoreButton {
-                    withAnimation(expandAnimation) { isExpanded.toggle() }
+//                if (isExpanded && collapseEnabled) ||
+//                     shouldShowMoreButton {
+//                    withAnimation(expandAnimation) { isExpanded.toggle() }
+//                }
+                withAnimation(expandAnimation) {
+                    isExpanded.toggle()
                 }
+                
             }
             .modifier(OverlayAdapter(alignment: .trailingLastTextBaseline, view: {
                 if shouldShowMoreButton {

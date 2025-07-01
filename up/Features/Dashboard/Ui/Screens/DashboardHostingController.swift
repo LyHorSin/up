@@ -1,5 +1,5 @@
 //
-//  ESOnboardingHostingController.swift
+//  DashboardHostingController.swift
 //  up
 //
 //  Created by Ly Hor Sin on 29/5/25.
@@ -7,14 +7,13 @@
 
 import SwiftUI
 
-class ESOnboardingHostingController: ESBaseHostingController<ESOnboardingPagerView, ESOnboardingObservable> {
+class DashboardHostingController: ESBaseHostingController<DashboardView, DashboardObservable> {
     
     init() {
-        let viewModel = ESOnboardingObservable()
+        let viewModel = DashboardObservable()
+        viewModel.request()
         super.init(viewModel: viewModel, navBarView: nil, bottomView: nil) {
-            ESOnboardingPagerView(items: viewModel.onboarding) {
-                
-            }
+            DashboardView(viewModel: viewModel)
         }
         
         self.overrideUserInterfaceStyle = .dark
@@ -23,8 +22,4 @@ class ESOnboardingHostingController: ESBaseHostingController<ESOnboardingPagerVi
     @MainActor @objc required dynamic init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-extension ESOnboardingHostingController {
-    
 }

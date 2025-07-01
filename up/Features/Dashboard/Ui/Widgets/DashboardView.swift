@@ -1,61 +1,45 @@
 //
-//  ESOnboardingListView.swift
+//  DashboardView.swift
 //  up
 //
 //  Created by Ly Hor Sin on 29/5/25.
 //
-
 import SwiftUI
 
-struct ESOnboardingPagerView: View {
+struct DashboardView: View {
     
-    public let items: [ESOnboarding]
-    public var onNextTapped: (() -> Void)?   // Add this closure
-    @State private var selectedIndex: Int = 0
-
-    var body: some View {
-        TabView(selection: $selectedIndex) {
-            ForEach(Array(items.enumerated()), id: \.element.id) { index, item in
-                ESOnboardingItem(item: item)
-                    .tag(index)
-            }
-        }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-        .animation(.easeInOut, value: selectedIndex)
-        .overlay(
-            ESOnboardingPagerIndicatorView(numberOfpages: items.count,
-                                           selectedIndex: $selectedIndex,
-                                           onNextTapped: onNextTapped)
-        )
-        .padding(.vertical, 22)
-        .background(Color.black)
-        .ignoresSafeArea()
-    }
-}
-
-struct ESOnboardingPagerIndicatorView: View {
+    @StateObject var viewModel: DashboardObservable
     
-    let numberOfpages: Int
-    @Binding var selectedIndex:Int
-    var onNextTapped: (() -> Void)?   // Add this closure
+    @State private var selectedTab = 0
     
     var body: some View {
-        HStack {
-            if selectedIndex < numberOfpages - 1 {
-                Spacer()
-                Spacer()
-            } else {
-                ESButton(title: "Next")
-                    .frame(width: 230.pxh, height: 38.pxh)
-                    .padding(.bottom, 22.pxh)
-                    .onTapGesture {
-                        onNextTapped?()  // Call the closure
-                    }
+        ZStack(alignment: .top) {
+            // TabView with swipe gesture
+            TabView(selection: $selectedTab) {
+                NewView(news: $viewModel.news)
+                    .tag(0)
+
+                VideoView()
+                    .tag(1)
             }
-            
+            .environmentObject(viewModel)
+            .ignoresSafeArea()
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never)) // No page dots
+            .statusBarHidden()
+            // Tab labels at the top
+            HStack {
+                Text("News")
+                    .fontWeight(selectedTab == 0 ? .bold : .regular)
+                    .foregroundColor(selectedTab == 0 ? .blue : .gray)
+                    .onTapGesture { selectedTab = 0 }
+
+                SizedBox(width: 12, height: 12)
+
+                Text("Video")
+                    .fontWeight(selectedTab == 1 ? .bold : .regular)
+                    .foregroundColor(selectedTab == 1 ? .blue : .gray)
+                    .onTapGesture { selectedTab = 1 }
+            }
         }
-        .frame(maxHeight: .infinity, alignment: .bottom)
-        .transition(.opacity)
-        .animation(.easeInOut, value: selectedIndex)
     }
 }
