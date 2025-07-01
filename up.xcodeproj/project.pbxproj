@@ -34,7 +34,6 @@
 		4C2363B22BDB49DE00A9D2A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2363912BDB49DE00A9D2A2 /* SceneDelegate.swift */; };
 		4C2363B42BDB49DE00A9D2A2 /* ESColor+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2363932BDB49DE00A9D2A2 /* ESColor+Ex.swift */; };
 		4C2363B62BDB49DE00A9D2A2 /* ESFont+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2363942BDB49DE00A9D2A2 /* ESFont+Ex.swift */; };
-		4C39E2452C60A3CE003A725B /* sound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4C39E2442C60A3CE003A725B /* sound.m4a */; };
 		4C4067FF2BDCE6EB0018A8D5 /* ESString+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4067FE2BDCE6EB0018A8D5 /* ESString+Ex.swift */; };
 		4C4068052BDCF18D0018A8D5 /* Campton-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4068042BDCF18D0018A8D5 /* Campton-SemiBold.otf */; };
 		4C4068082BDCF5160018A8D5 /* ESApplication+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4068072BDCF5160018A8D5 /* ESApplication+Ex.swift */; };
@@ -79,7 +78,6 @@
 		4CB0DEAF2CB62BE500D6E205 /* ESArray+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB0DEAE2CB62BE500D6E205 /* ESArray+Ex.swift */; };
 		4CB1D10B2C05921900D6C774 /* ESCameraCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB1D10A2C05921900D6C774 /* ESCameraCenter.swift */; };
 		4CB1D10F2C05955900D6C774 /* ESMicrophoneCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB1D10E2C05955900D6C774 /* ESMicrophoneCenter.swift */; };
-		4CB59C042C2E92430048083D /* demo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4CB59C032C2E92430048083D /* demo.mp4 */; };
 		4CC9F61F2CD4F82B001495D2 /* up.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4CC9F61E2CD4F82B001495D2 /* up.plist */; };
 		4CD4E8672BDB6E960007AD69 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4E8662BDB6E960007AD69 /* Poppins-SemiBold.ttf */; };
 		4CD4E86A2BDB6F6A0007AD69 /* ESView+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4E8692BDB6F6A0007AD69 /* ESView+Ex.swift */; };
@@ -127,7 +125,6 @@
 		4C2363912BDB49DE00A9D2A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4C2363932BDB49DE00A9D2A2 /* ESColor+Ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ESColor+Ex.swift"; sourceTree = "<group>"; };
 		4C2363942BDB49DE00A9D2A2 /* ESFont+Ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ESFont+Ex.swift"; sourceTree = "<group>"; };
-		4C39E2442C60A3CE003A725B /* sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound.m4a; sourceTree = "<group>"; };
 		4C4067FE2BDCE6EB0018A8D5 /* ESString+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ESString+Ex.swift"; sourceTree = "<group>"; };
 		4C4068042BDCF18D0018A8D5 /* Campton-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Campton-SemiBold.otf"; sourceTree = "<group>"; };
 		4C4068072BDCF5160018A8D5 /* ESApplication+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ESApplication+Ex.swift"; sourceTree = "<group>"; };
@@ -175,7 +172,6 @@
 		4CB0DEAE2CB62BE500D6E205 /* ESArray+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ESArray+Ex.swift"; sourceTree = "<group>"; };
 		4CB1D10A2C05921900D6C774 /* ESCameraCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESCameraCenter.swift; sourceTree = "<group>"; };
 		4CB1D10E2C05955900D6C774 /* ESMicrophoneCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESMicrophoneCenter.swift; sourceTree = "<group>"; };
-		4CB59C032C2E92430048083D /* demo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = demo.mp4; sourceTree = "<group>"; };
 		4CBBA1982C4F8DF800ECBB81 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		4CBBA19A2C4F8E0D00ECBB81 /* CoreAudioTypes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioTypes.framework; path = System/Library/Frameworks/CoreAudioTypes.framework; sourceTree = SDKROOT; };
 		4CC9F61E2CD4F82B001495D2 /* up.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = up.plist; sourceTree = "<group>"; };
@@ -318,7 +314,6 @@
 				4C2363912BDB49DE00A9D2A2 /* SceneDelegate.swift */,
 				4C8D08C62D41F75B00BCDFA7 /* Localizable */,
 				4CDCC8A62CD8E77500BCB380 /* GoogleService */,
-				4CB59C022C2E92300048083D /* Video */,
 				4C40681A2BDDDF860018A8D5 /* Json */,
 				4C23638A2BDB49DE00A9D2A2 /* Asset */,
 				4C23638E2BDB49DE00A9D2A2 /* Fonts */,
@@ -586,15 +581,6 @@
 			path = Microphone;
 			sourceTree = "<group>";
 		};
-		4CB59C022C2E92300048083D /* Video */ = {
-			isa = PBXGroup;
-			children = (
-				4C39E2442C60A3CE003A725B /* sound.m4a */,
-				4CB59C032C2E92430048083D /* demo.mp4 */,
-			);
-			path = Video;
-			sourceTree = "<group>";
-		};
 		4CDCC8A62CD8E77500BCB380 /* GoogleService */ = {
 			isa = PBXGroup;
 			children = (
@@ -739,8 +725,6 @@
 				4C40681C2BDDDF990018A8D5 /* country_code.json in Resources */,
 				4C8D08C92D41F78500BCDFA7 /* Localizable.strings in Resources */,
 				4CD4E8672BDB6E960007AD69 /* Poppins-SemiBold.ttf in Resources */,
-				4CB59C042C2E92430048083D /* demo.mp4 in Resources */,
-				4C39E2452C60A3CE003A725B /* sound.m4a in Resources */,
 				4C2363AC2BDB49DE00A9D2A2 /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
