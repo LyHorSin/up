@@ -43,9 +43,11 @@ struct VideoView: View {
                     activeIndex = newIndex
                 }
                 .onAppear {
-                    activeIndex = currentIndex
+                    activeIndex = currentIndex // resume current video
                 }
-                
+                .onDisappear {
+                    activeIndex = -1 // stop video
+                }
                 .frame(
                     width: proxy.size.height, // Height & width swap
                     height: proxy.size.width
