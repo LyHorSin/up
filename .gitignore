@@ -1,0 +1,62 @@
+# Xcode
+*.xcuserdata
+*.xcuserstate
+*.xcworkspace
+.DS_Store
+build/
+DerivedData/
+*.xcworkspace
+!Pods/
+xcuserdata/
+*.xcuserstate
+*.moved-aside
+*.swp
+*.lock
+
+# Swift Package Manager
+/.build
+/Packages
+/*.xcodeproj/project.xcworkspace/
+.swiftpm/xcode/package.resolved
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Archives
+*.xcarchive
+
+# SwiftPM binary cache
+.xcframework-cache
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Certificates
+*.cer
+*.crt
+*.pem
+
+# Provisioning profiles
+*.mobileprovision
+
+# Symbolication
+*.dSYM.zip
+*.dSYM
+
+# App Icon and Indexed Assets
+.AppIconPreview
+
+# IDE specific
+.idea/
+*.iml
