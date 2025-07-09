@@ -11,7 +11,7 @@ import ObjectMapper
 class ESConfiguration: Mappable {
     
     var google: Google?
-    var chat: Chat?
+    var news: NewsConfig?
 
     required init?(map: ObjectMapper.Map) {
         
@@ -19,7 +19,7 @@ class ESConfiguration: Mappable {
     
     func mapping(map: ObjectMapper.Map) {
         google <- map["google"]
-        chat <- map["chat"]
+        news <- map["news"]
     }
     
     class func getConfiguration(dict: [String:Any]) -> ESConfiguration {
@@ -29,13 +29,14 @@ class ESConfiguration: Mappable {
 
 // MARK: - Google
 class Google: Mappable {
-    var clientKey, mapServiceKey, mapPlaceClientKey: String?
+    var clientKey, mapServiceKey, mapPlaceClientKey, youtubeApiKey: String?
 
     required init?(map: ObjectMapper.Map) {
         
     }
     
     func mapping(map: ObjectMapper.Map) {
+        youtubeApiKey <- map["youtube_api_key"]
         clientKey <- map["client_key"]
         mapServiceKey <- map["map_service_key"]
         mapPlaceClientKey <- map["map_place_client_key"]
@@ -43,16 +44,15 @@ class Google: Mappable {
 }
 
 //Mark: - Chat
-class Chat: Mappable {
+class NewsConfig: Mappable {
     
-    var crispDevelopmentKey, crispProductionKey: String?
+    var apiKey: String?
     
     required init(map: ObjectMapper.Map) {
         
     }
     
     func mapping(map: ObjectMapper.Map) {
-        crispDevelopmentKey <- map["crisp_development_key"]
-        crispProductionKey <- map["crisp_production_key"]
+        apiKey <- map["news_api_key"]
     }
 }

@@ -30,6 +30,10 @@ class NewsService: ESApiRequest {
     }
     
     override var params: String? {
-        return "apiKey=8ea28dd4136f49ee98d9390230c95980&country=us&page=\(page)"
+        let apiKey = ESAppConfiguration.share.configuration?.news?.apiKey
+        if let apiKey = apiKey {
+            return "apiKey=\(apiKey)&country=us&page=\(page)"
+        }
+        return "country=us&page=\(page)"
     }
 }

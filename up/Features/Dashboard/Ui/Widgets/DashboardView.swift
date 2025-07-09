@@ -19,7 +19,7 @@ struct DashboardView: View {
                 NewView(news: $viewModel.news)
                     .tag(0)
 
-                VideoView()
+                VideoView(videos: $viewModel.videos)
                     .tag(1)
             }
             .environmentObject(viewModel)
@@ -30,14 +30,14 @@ struct DashboardView: View {
             HStack {
                 Text("News")
                     .fontWeight(selectedTab == 0 ? .bold : .regular)
-                    .foregroundColor(selectedTab == 0 ? .blue : .gray)
+                    .foregroundColor(selectedTab == 0 ? .white : .gray)
                     .onTapGesture { selectedTab = 0 }
 
                 SizedBox(width: 12, height: 12)
 
                 Text("Video")
                     .fontWeight(selectedTab == 1 ? .bold : .regular)
-                    .foregroundColor(selectedTab == 1 ? .blue : .gray)
+                    .foregroundColor(selectedTab == 1 ? .white : .gray)
                     .onTapGesture { selectedTab = 1 }
             }
         }

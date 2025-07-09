@@ -43,7 +43,7 @@ struct NewView: View {
                 .onChange(of: currentPage) { newValue in
                     if let index = self.news.firstIndex(where: {$0._id == currentPage}) {
                         if Int(index) > self.news.count - 4 {
-                            self.viewModel.request()
+                            self.viewModel.requestNews()
                         }
                     }
                 }

@@ -8,13 +8,18 @@
 class DashboardObservable: ObservableObject {
     
     @Published var news: [News] = []
+    @Published var videos: [Video] = []
+    
     @Published var page: Int = 0
     @Published var requesting: Bool = false
+    
+    @Published var videoPage: Int = 0
+    @Published var requestingVideo: Bool = false
 }
 
 extension DashboardObservable {
     
-    public func request() {
+    public func requestNews() {
         
         if requesting {
             return
@@ -30,6 +35,25 @@ extension DashboardObservable {
                 self.page -= 1
             }
             self.requesting = false
+        }
+    }
+    
+    public func requestVideo() {
+        
+        if requestingVideo {
+            return
+        }
+        
+        videoPage += 1
+        requestingVideo = true
+        ESRequest.request(api: VideoService(page: videoPage)) { response in
+            self.videos += Video.getVideos(response: response)
+            self.requestingVideo = false
+        } errorCompletion: { error in
+            if self.videoPage > 0 {
+                self.videoPage -= 1
+            }
+            self.requestingVideo = false
         }
     }
 }
