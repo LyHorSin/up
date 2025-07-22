@@ -315,6 +315,10 @@ extension View {
         self.clipShape(Circle())
     }
     
+    public func clipRectangle() -> some View {
+        self.clipShape(Rectangle())
+    }
+    
     public func backgroundColor(_ color: Color) -> some View {
         self.background(color)
     }
@@ -386,5 +390,49 @@ extension View {
     public func paddingVertical(_ paddingTop: CGFloat, _ paddingBottom: CGFloat) -> some View {
         self.paddingTop(paddingTop)
             .paddingBottom(paddingBottom)
+    }
+    
+    public func cornerRadius(
+        topLeft: CGFloat = 0,
+        topRight: CGFloat = 0,
+        bottomLeft: CGFloat = 0,
+        bottomRight: CGFloat = 0,
+        borderColor: Color? = nil,
+        lineWidth: CGFloat = 1
+    ) -> some View {
+        if let borderColor {
+            return clipShape(
+                ShapeRoundedCorner(
+                    topLeftRadius: topLeft,
+                    topRightRadius: topRight,
+                    bottomLeftRadius: bottomLeft,
+                    bottomRightRadius: bottomRight
+                )
+            )
+            .overlay(
+                ShapeRoundedCorner(
+                    topLeftRadius: topLeft,
+                    topRightRadius: topRight,
+                    bottomLeftRadius: bottomLeft,
+                    bottomRightRadius: bottomRight
+                )
+                .stroke(borderColor, lineWidth: lineWidth)
+            )
+            .asAnyView
+        } else {
+            return clipShape(
+                ShapeRoundedCorner(
+                    topLeftRadius: topLeft,
+                    topRightRadius: topRight,
+                    bottomLeftRadius: bottomLeft,
+                    bottomRightRadius: bottomRight
+                )
+            )
+            .asAnyView
+        }
+    }
+    
+    var asAnyView: AnyView {
+        AnyView(self)
     }
 }

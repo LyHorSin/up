@@ -15,9 +15,9 @@ enum ESAppEnvironment: String {
     
     public var domain:String {
         switch self {
-        case .Development: return "https://newsapi.org"
-        case .UAT: return "https://newsapi.org"
-        case .Production: return "https://newsapi.org"
+        case .Development: return "http://128.199.70.146"
+        case .UAT: return "http://128.199.70.146"
+        case .Production: return "http://128.199.70.146"
         }
     }
 }

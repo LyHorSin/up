@@ -88,6 +88,7 @@ extension Color {
     public static let white80 = Color(UIColor(hexString: "#F3F3F3"))
     
     public static let blackColor = Color(UIColor(hexString: "#070114"))
+    public static let black90 = Color(UIColor(hexString: "#272727"))
     
     public static let lightPurpleColor = Color(UIColor(hexString: "#AD83FF"))
     public static let darkColor = Color(UIColor(hexString: "#1D1E20"))

@@ -13,6 +13,8 @@ struct ProfileView: View {
     let name:String?
     let description:String?
     
+    @State private var isExpanded:Bool = false
+    
     init(url: String? = nil, name: String? = nil, description: String? = nil) {
         self.url = url
         self.name = name
@@ -20,15 +22,17 @@ struct ProfileView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
+        VStack(alignment: .center, spacing: 0) {
             HStack(spacing: 0) {
-                Image("profile")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 44, height: 44)
-                    .padding(2)
-                    .borderCornerRadius(22, color: .white, width: 2)
-                    .clipCircle()
+                AnimatedImage(url: URL(string: url ?? "")) {
+                    ProgressView()
+                }
+                .resizable()
+                .scaledToFill()
+                .frame(width: 44, height: 44)
+                .borderCornerRadius(22, color: .white, width: 1)
+                .padding(2)
+                .clipCircle()
                 
                 SizedBox(width: 8.pxw, height: 8)
                 
@@ -38,9 +42,26 @@ struct ProfileView: View {
             
             SizedBox(width: 8.pxw, height: 8.pxh)
             
-            ExpandableText(description ?? "")
+            ScrollView(.vertical, showsIndicators: false) {
+                ExpandableText(
+                    text: description ?? "",
+                    isExpanded: $isExpanded
+                )
+                .introspectScrollView { scrollView in
+                    scrollView.bounces = false
+                }
+            }
+            .frame(maxHeight: screenHeight * 0.7)
+            .fixedSize(horizontal: false, vertical: true)
         }
         .padding(24.px)
-        .padding(.bottom, 22.pxh)
+        .background(
+            GeometryReader { geo in
+                Rectangle()
+                    .fill(isExpanded ? Color.black90 : Color.clear)
+                    .cornerRadius(20)
+                    .frame(width: geo.size.width, height: geo.size.height)
+            }
+        )
     }
 }

@@ -14,22 +14,34 @@ struct VideoView: View {
     
     @Binding var videos: [Video]
     
-    @State private var currentPage = UUID.init()
-    @State private var activePage = UUID.init()
-    
     @EnvironmentObject private var viewModel: DashboardObservable
-    
-    let url = "https://f005.backblazeb2.com/file/camup-news/download.mp4?Authorization=4_005fd92867faca70000000000_01bd9705_e06996_acct_u75VNITzt_cHI4e0X9S4ymZpeVo="
     
     var body: some View {
         ZStack {
             GeometryReader { proxy in
-                TabView(selection: $currentPage) {
+                TabView(selection: $viewModel.currentPageOfVideo) {
                     ForEach($videos, id: \._id) { $video in
                         VideoPlayerView(
-                            url: url,
-                            play: activePage == video._id
+                            url: video.getUrl,
+                            play: viewModel.activePageOfVideo == video._id
+                            
                         )
+                        .onAppear {
+                            if let currentIndex = videos.firstIndex(where: { $0._id == video._id }) {
+                                let startIndex = currentIndex + 1
+                                let endIndex = min(currentIndex + 5, videos.count - 1)
+                                
+                                if startIndex <= endIndex {  
+                                    let preloadRange = startIndex...endIndex
+                                    for index in preloadRange {
+                                        let nextVideo = videos[index]
+                                        if let url = nextVideo.getUrl?.toUrl() {
+                                            viewModel.preloadVideo(url: url)
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                     .rotationEffect(.degrees(-90))
                     .frame(
@@ -37,14 +49,14 @@ struct VideoView: View {
                         height: proxy.size.height
                     )
                 }
-                .onChange(of: currentPage) { newIndex in
-                    activePage = newIndex
+                .onChange(of: viewModel.currentPageOfVideo) { newIndex in
+                    viewModel.activePageOfVideo = newIndex
                 }
                 .onAppear {
-                    activePage = currentPage // resume current video
+                    viewModel.activePageOfVideo = viewModel.currentPageOfVideo // resume current video
                 }
                 .onDisappear {
-                    activePage = UUID() // stop video
+                    viewModel.activePageOfVideo = UUID() // stop video
                 }
                 .frame(
                     width: proxy.size.height, // Height & width swap
@@ -79,6 +91,7 @@ struct VideoPlayerView: View {
                 .mute(mute)
                 .speedRate(speedRate)
                 .contentMode(.scaleAspectFit)
+                .ignoresSafeArea()
         } else {
             ESText("Loading")
         }

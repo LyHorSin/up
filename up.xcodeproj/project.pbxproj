@@ -80,7 +80,9 @@
 		4CB0DEAF2CB62BE500D6E205 /* ESArray+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB0DEAE2CB62BE500D6E205 /* ESArray+Ex.swift */; };
 		4CB1D10B2C05921900D6C774 /* ESCameraCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB1D10A2C05921900D6C774 /* ESCameraCenter.swift */; };
 		4CB1D10F2C05955900D6C774 /* ESMicrophoneCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB1D10E2C05955900D6C774 /* ESMicrophoneCenter.swift */; };
+		4CC5FFE02E28C6F000551AEE /* ShapeRoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC5FFDF2E28C6E100551AEE /* ShapeRoundedCorner.swift */; };
 		4CC9F61F2CD4F82B001495D2 /* up.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4CC9F61E2CD4F82B001495D2 /* up.plist */; };
+		4CD44AB22E2F521200E4DDD0 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD44AB12E2F521200E4DDD0 /* NewItemView.swift */; };
 		4CD4E8672BDB6E960007AD69 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4E8662BDB6E960007AD69 /* Poppins-SemiBold.ttf */; };
 		4CD4E86A2BDB6F6A0007AD69 /* ESView+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4E8692BDB6F6A0007AD69 /* ESView+Ex.swift */; };
 		4CD4E8752BDB81770007AD69 /* ESLabel+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4E8742BDB81770007AD69 /* ESLabel+Ex.swift */; };
@@ -178,7 +180,9 @@
 		4CB1D10E2C05955900D6C774 /* ESMicrophoneCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESMicrophoneCenter.swift; sourceTree = "<group>"; };
 		4CBBA1982C4F8DF800ECBB81 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		4CBBA19A2C4F8E0D00ECBB81 /* CoreAudioTypes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioTypes.framework; path = System/Library/Frameworks/CoreAudioTypes.framework; sourceTree = SDKROOT; };
+		4CC5FFDF2E28C6E100551AEE /* ShapeRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeRoundedCorner.swift; sourceTree = "<group>"; };
 		4CC9F61E2CD4F82B001495D2 /* up.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = up.plist; sourceTree = "<group>"; };
+		4CD44AB12E2F521200E4DDD0 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
 		4CD4E8662BDB6E960007AD69 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		4CD4E8692BDB6F6A0007AD69 /* ESView+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ESView+Ex.swift"; sourceTree = "<group>"; };
 		4CD4E8742BDB81770007AD69 /* ESLabel+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ESLabel+Ex.swift"; sourceTree = "<group>"; };
@@ -246,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				4C01E20C2C0C093C0076996B /* up.entitlements */,
+				4CC5FFD42E28C6AB00551AEE /* View */,
 				4C2363802BDB49DE00A9D2A2 /* AppManager */,
 				4C2363952BDB49DE00A9D2A2 /* Extension */,
 				4CE8C95D2DE8599D0074182B /* Features */,
@@ -429,6 +434,7 @@
 				4C53C2D32E0FC11D00C93AFC /* VideoView.swift */,
 				4C53C2E52E0FE30400C93AFC /* ProfileView.swift */,
 				4C53C2DE2E0FC17500C93AFC /* NewView.swift */,
+				4CD44AB12E2F521200E4DDD0 /* NewItemView.swift */,
 				4C53C2D42E0FC11D00C93AFC /* DashboardView.swift */,
 			);
 			path = Widgets;
@@ -585,6 +591,22 @@
 				4CB1D10E2C05955900D6C774 /* ESMicrophoneCenter.swift */,
 			);
 			path = Microphone;
+			sourceTree = "<group>";
+		};
+		4CC5FFD42E28C6AB00551AEE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4CC5FFDD2E28C6B800551AEE /* Shape */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4CC5FFDD2E28C6B800551AEE /* Shape */ = {
+			isa = PBXGroup;
+			children = (
+				4CC5FFDF2E28C6E100551AEE /* ShapeRoundedCorner.swift */,
+			);
+			path = Shape;
 			sourceTree = "<group>";
 		};
 		4CDCC8A62CD8E77500BCB380 /* GoogleService */ = {
@@ -834,6 +856,7 @@
 				4C4068232BDDE0830018A8D5 /* ESCountry.swift in Sources */,
 				4C0EC3F92C1FD1E700B2C864 /* ESAppConfiguration.swift in Sources */,
 				4CD4E8752BDB81770007AD69 /* ESLabel+Ex.swift in Sources */,
+				4CC5FFE02E28C6F000551AEE /* ShapeRoundedCorner.swift in Sources */,
 				4C8FF66B2C0F228A00257641 /* ImageManager.swift in Sources */,
 				4C8FF6732C0F228A00257641 /* WebImage.swift in Sources */,
 				4C8FF6692C0F228A00257641 /* Image.swift in Sources */,
@@ -862,6 +885,7 @@
 				4C53C2D92E0FC11D00C93AFC /* DashboardHostingController.swift in Sources */,
 				4C5BC6F12E14CBF7000E72E7 /* Video.swift in Sources */,
 				4C53C2DA2E0FC11D00C93AFC /* DashboardView.swift in Sources */,
+				4CD44AB22E2F521200E4DDD0 /* NewItemView.swift in Sources */,
 				4C53C2DD2E0FC11D00C93AFC /* VideoView.swift in Sources */,
 				4C8FF6632C0F228A00257641 /* Transition.swift in Sources */,
 				4CDCC8A92CD8E84B00BCB380 /* ESFirebaseManager.swift in Sources */,

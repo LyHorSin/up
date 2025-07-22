@@ -14,7 +14,7 @@ class NewsService: ESApiRequest {
     }
     
     override var url: String {
-        var url = "\(domain)/\(version.rawValue)/\(suffix)"
+        var url = "\(domain)/api/\(suffix)"
         if let params = params, params.isNotEmpty {
             url += "?\(params)"
         }
@@ -22,18 +22,16 @@ class NewsService: ESApiRequest {
     }
     
     override var suffix: String {
-        return "top-headlines"
+        return "news"
     }
     
-    override var version: ESVersion {
-        return .v2
-    }
-    
-    override var params: String? {
-        let apiKey = ESAppConfiguration.share.configuration?.news?.apiKey
-        if let apiKey = apiKey {
-            return "apiKey=\(apiKey)&country=us&page=\(page)"
+    override var headers: [String : String]? {
+        let deviceId = UIDevice.current.identifierForVendor?.uuidString
+        if let deviceId = deviceId {
+            return [
+                "Device-ID" : deviceId
+            ]
         }
-        return "country=us&page=\(page)"
+        return nil
     }
 }

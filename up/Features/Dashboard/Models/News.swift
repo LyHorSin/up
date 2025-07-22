@@ -16,15 +16,18 @@ class News: Mappable {
     var description:String?
     var image:String?
     var author:String?
+    var authorProfile:String?
+    var medias:[String]?
     
     required init?(map: Map) {}
     
     func mapping(map: ObjectMapper.Map) {
         id <- map["id"]
-        title <- map["title"]
-        description <- map["content"]
+        description <- map["title"]
         image <- map["urlToImage"]
-        author <- map["author"]
+        author <- map["author_name"]
+        authorProfile <- map["author_profile"]
+        medias <- map["medias"]
     }
     
     class func getNews(response: AFDataResponse<Data>) -> [News] {
@@ -32,7 +35,7 @@ class News: Mappable {
             return []
         }
 
-        let news = JSON(data)["articles"].arrayValue.compactMap {
+        let news = JSON(data)["data"]["item"].arrayValue.compactMap {
             Mapper<News>().map(JSONObject: $0.dictionaryObject)
         }
         

@@ -23,9 +23,7 @@ struct DashboardView: View {
                     .tag(1)
             }
             .environmentObject(viewModel)
-            .ignoresSafeArea()
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never)) // No page dots
-            .statusBarHidden()
             // Tab labels at the top
             HStack {
                 Text("News")
@@ -40,6 +38,9 @@ struct DashboardView: View {
                     .foregroundColor(selectedTab == 1 ? .white : .gray)
                     .onTapGesture { selectedTab = 1 }
             }
+            .padding(.top, safeArea.top)
         }
+        .statusBarHidden()
+        .ignoresSafeArea()
     }
 }

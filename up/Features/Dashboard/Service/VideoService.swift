@@ -5,6 +5,8 @@
 //  Created by Ly Hor Sin on 28/6/25.
 //
 
+import Alamofire
+
 class VideoService: ESApiRequest {
     
     let page:Int
@@ -14,32 +16,27 @@ class VideoService: ESApiRequest {
     }
     
     override var url: String {
-        var url = "\(domain)/\(suffix)"
-        if let params = params, params.isNotEmpty {
-            url += "?\(params)"
-        }
-        return url
+        return "https://api005.backblazeb2.com/b2api/v2/b2_list_file_names"
     }
     
-    override var domain: String {
-        return "https://api.pexels.com"
+    override var version: ESVersion {
+        return .v2
     }
     
-    override var suffix: String {
-        return "videos/popular"
+    override var method: HTTPMethod {
+        return .post
     }
     
-    override var params: String? {
-        return "page=\(page)"
+    override var body: [String : Any]? {
+        return [
+            "bucketId": "5fed09720856d73f9a7c0a17",
+            "maxFileCount": 10
+        ]
     }
     
     override var headers: [String : String]? {
-        let apiKey = ESAppConfiguration.share.configuration?.google?.youtubeApiKey
-        if let apiKey = apiKey {
-            return [
-                "Authorization" : apiKey
-            ]
-        }
-        return nil
+        return [
+            "Authorization" : "4_005fd92867faca70000000000_01bd9705_e06996_acct_u75VNITzt_cHI4e0X9S4ymZpeVo="
+        ]
     }
 }

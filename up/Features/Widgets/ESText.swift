@@ -48,15 +48,18 @@ struct ESText: View {
     let text: String
     let style: ESTextStyle
     let color: Color
+    let lineLimit:Int?
 
-    init(_ text: String, style: ESTextStyle = .body, color: Color = .primary) {
+    init(_ text: String, style: ESTextStyle = .body, color: Color = .primary, lineLimit: Int? = nil) {
         self.text = text
         self.style = style
         self.color = color
+        self.lineLimit = lineLimit
     }
 
     var body: some View {
         Text(text)
+            .lineLimit(lineLimit)
             .font(.custom(style.fontName, size: style.size))
             .foregroundColor(color)
     }
