@@ -13,11 +13,14 @@ struct NewsItemView: View {
     let width: CGFloat
     let height:CGFloat
     
+    @State private var currentPage = 0
+    
     var body: some View {
         ZStack(alignment: .bottom) {
-            TabView {
+            TabView(selection: $currentPage) {
                 if let images = news.medias, !images.isEmpty {
-                    ForEach(images, id: \.self) { image in
+                    ForEach(0..<images.count, id: \.self) { index in
+                        let image = images[index]
                         AnimatedImage(url: URL(string: image)) {
                             ProgressView()
                         }
@@ -27,9 +30,24 @@ struct NewsItemView: View {
                     }
                 }
             }
+            .onChange(of: currentPage) { newValue in
+                currentPage = newValue
+            }
             
-            ProfileView(name: news.author,
-                        description: news.description)
+            VStack {
+                HStack(spacing: 8) {
+                    ForEach(0..<(news.medias?.count ?? 0), id: \.self) { index in
+                        Circle()
+                            .fill(index == currentPage ? Color.gray.opacity(0.5) : Color.black90)
+                            .frame(width: 8, height: 8)
+                    }
+                }
+                .padding(.top, 16)
+                
+                ProfileView(url: news.authorProfile,
+                            name: news.author,
+                            description: news.description)
+            }
         }
     }
 }

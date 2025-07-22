@@ -28,11 +28,18 @@ struct NewView: View {
             .frame(width: proxy.size.height, height: proxy.size.width)
             .rotationEffect(.degrees(90), anchor: .topLeading)
             .offset(x: proxy.size.width)
-
+            .onAppear {
+                self.viewModel.appearDate = Date()
+            }
             .onChange(of: currentPage) { newValue in
                 if let index = self.news.firstIndex(where: {$0._id == currentPage}) {
                     if Int(index) > self.news.count - 4 {
                         self.viewModel.requestNews()
+                    }
+                    
+                    if let id = self.news[index].id {
+                        self.viewModel.logInterest(id: id)
+                        self.viewModel.appearDate = Date()
                     }
                 }
             }

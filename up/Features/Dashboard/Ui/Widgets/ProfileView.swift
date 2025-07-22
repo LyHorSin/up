@@ -25,14 +25,13 @@ struct ProfileView: View {
         VStack(alignment: .center, spacing: 0) {
             HStack(spacing: 0) {
                 AnimatedImage(url: URL(string: url ?? "")) {
-                    ProgressView()
+                    ProfileInitialsView(name: name ?? "N")
                 }
                 .resizable()
                 .scaledToFill()
                 .frame(width: 44, height: 44)
-                .borderCornerRadius(22, color: .white, width: 1)
-                .padding(2)
                 .clipCircle()
+                .borderCornerRadius(22, color: .white, width: 1)
                 
                 SizedBox(width: 8.pxw, height: 8)
                 
@@ -54,7 +53,7 @@ struct ProfileView: View {
             .frame(maxHeight: screenHeight * 0.7)
             .fixedSize(horizontal: false, vertical: true)
         }
-        .padding(24.px)
+        .padding(20.px)
         .background(
             GeometryReader { geo in
                 Rectangle()
@@ -64,4 +63,32 @@ struct ProfileView: View {
             }
         )
     }
+}
+
+struct ProfileInitialsView: View {
+    let name: String
+
+    var body: some View {
+        Text(getInitials(from: name))
+            .font(.custom(ESTextStyle.h6.fontName, size: ESTextStyle.h6.size))
+            .foregroundColor(.white)
+            .clipShape(Circle())
+    }
+    
+    func getInitials(from name: String) -> String {
+        let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
+        let components = trimmedName.components(separatedBy: .whitespaces)
+        
+        if components.count >= 2 {
+            // Take first letter of first two words
+            return components.prefix(2).map { String($0.prefix(1)).uppercased() }.joined()
+        } else {
+            // For single-word names like "LyHor"
+            let filtered = trimmedName.filter { $0.isLetter }
+            let first = filtered.first?.uppercased() ?? ""
+            let second = filtered.dropFirst().first?.uppercased() ?? ""
+            return first + second
+        }
+    }
+
 }

@@ -23,6 +23,9 @@ class DashboardObservable: ObservableObject {
     
     @Published var videoPage: Int = 0
     @Published var requestingVideo: Bool = false
+    
+    @Published public var appearDate: Date?
+
 }
 
 extension DashboardObservable {
@@ -81,6 +84,19 @@ extension DashboardObservable {
                 self.videoPage -= 1
             }
             self.requestingVideo = false
+        }
+    }
+    
+    public func logInterest(id: Int) {
+        if let start = self.appearDate {
+            let duration = Date().timeIntervalSince(start)
+            if duration >= 5 {
+                ESRequest.request(api: LogEventService(id: id)) { response in
+                    print("LOG News")
+                } errorCompletion: { error in
+                    print("LOG Error")
+                }
+            }
         }
     }
 }

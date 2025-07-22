@@ -82,6 +82,7 @@
 		4CB1D10F2C05955900D6C774 /* ESMicrophoneCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB1D10E2C05955900D6C774 /* ESMicrophoneCenter.swift */; };
 		4CC5FFE02E28C6F000551AEE /* ShapeRoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC5FFDF2E28C6E100551AEE /* ShapeRoundedCorner.swift */; };
 		4CC9F61F2CD4F82B001495D2 /* up.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4CC9F61E2CD4F82B001495D2 /* up.plist */; };
+		4CCAE6D52E2FDC3F00CB4615 /* LogEventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCAE6D42E2FDC3F00CB4615 /* LogEventService.swift */; };
 		4CD44AB22E2F521200E4DDD0 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD44AB12E2F521200E4DDD0 /* NewItemView.swift */; };
 		4CD4E8672BDB6E960007AD69 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4E8662BDB6E960007AD69 /* Poppins-SemiBold.ttf */; };
 		4CD4E86A2BDB6F6A0007AD69 /* ESView+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4E8692BDB6F6A0007AD69 /* ESView+Ex.swift */; };
@@ -182,6 +183,7 @@
 		4CBBA19A2C4F8E0D00ECBB81 /* CoreAudioTypes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioTypes.framework; path = System/Library/Frameworks/CoreAudioTypes.framework; sourceTree = SDKROOT; };
 		4CC5FFDF2E28C6E100551AEE /* ShapeRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeRoundedCorner.swift; sourceTree = "<group>"; };
 		4CC9F61E2CD4F82B001495D2 /* up.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = up.plist; sourceTree = "<group>"; };
+		4CCAE6D42E2FDC3F00CB4615 /* LogEventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEventService.swift; sourceTree = "<group>"; };
 		4CD44AB12E2F521200E4DDD0 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
 		4CD4E8662BDB6E960007AD69 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		4CD4E8692BDB6F6A0007AD69 /* ESView+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ESView+Ex.swift"; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 			isa = PBXGroup;
 			children = (
 				4C53C2FC2E0FEBE300C93AFC /* NewsService.swift */,
+				4CCAE6D42E2FDC3F00CB4615 /* LogEventService.swift */,
 				4C5BC6EE2E13898A000E72E7 /* VideoService.swift */,
 			);
 			path = Service;
@@ -876,6 +879,7 @@
 				4C2363962BDB49DE00A9D2A2 /* ESNotificationCenter.swift in Sources */,
 				4CD4E87B2BDB89B40007AD69 /* ESLocalizable.swift in Sources */,
 				4C5BC6EF2E13898A000E72E7 /* VideoService.swift in Sources */,
+				4CCAE6D52E2FDC3F00CB4615 /* LogEventService.swift in Sources */,
 				4C8FF6672C0F228A00257641 /* AnimatedImage.swift in Sources */,
 				4C8FF6612C0F228A00257641 /* Indicator.swift in Sources */,
 				2D4098B62C8C0F7100C36F32 /* ESText+Ex.swift in Sources */,
