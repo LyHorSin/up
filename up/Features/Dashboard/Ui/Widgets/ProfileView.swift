@@ -9,23 +9,15 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    let url:String?
-    let name:String?
-    let description:String?
-    
+    let news:News?
+
     @State private var isExpanded:Bool = false
-    
-    init(url: String? = nil, name: String? = nil, description: String? = nil) {
-        self.url = url
-        self.name = name
-        self.description = description
-    }
-    
+
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             HStack(spacing: 0) {
-                AnimatedImage(url: URL(string: url ?? "")) {
-                    ProfileInitialsView(name: name ?? "N")
+                AnimatedImage(url: URL(string: news?.authorProfile ?? "")) {
+                    ProfileInitialsView(name: news?.author ?? "N")
                 }
                 .resizable()
                 .scaledToFill()
@@ -35,15 +27,26 @@ struct ProfileView: View {
                 
                 SizedBox(width: 8.pxw, height: 8)
                 
-                ESText(name ?? "", style: .h6)
+                ESText(news?.author ?? "", style: .h6)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             
             SizedBox(width: 8.pxw, height: 8.pxh)
             
+            
+            if let adId = news?.adId {
+                SizedBox(width: 8.pxw, height: 12.pxh)
+                FBInterstitialAdRepresentable(adId: adId)
+                    .frame(height: 50)
+                    .clipRectangle()
+                    .cornerRadius(4)
+                
+                SizedBox(width: 8.pxw, height: 12.pxh)
+            }
+            
             ScrollView(.vertical, showsIndicators: false) {
                 ExpandableText(
-                    text: description ?? "",
+                    text: news?.description ?? "",
                     isExpanded: $isExpanded
                 )
                 .introspectScrollView { scrollView in

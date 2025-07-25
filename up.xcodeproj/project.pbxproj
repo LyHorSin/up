@@ -83,6 +83,7 @@
 		4CC5FFE02E28C6F000551AEE /* ShapeRoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC5FFDF2E28C6E100551AEE /* ShapeRoundedCorner.swift */; };
 		4CC9F61F2CD4F82B001495D2 /* up.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4CC9F61E2CD4F82B001495D2 /* up.plist */; };
 		4CCAE6D52E2FDC3F00CB4615 /* LogEventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCAE6D42E2FDC3F00CB4615 /* LogEventService.swift */; };
+		4CCAE6D72E307FB500CB4615 /* FacebookAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCAE6D62E307FB500CB4615 /* FacebookAdView.swift */; };
 		4CD44AB22E2F521200E4DDD0 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD44AB12E2F521200E4DDD0 /* NewItemView.swift */; };
 		4CD4E8672BDB6E960007AD69 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4E8662BDB6E960007AD69 /* Poppins-SemiBold.ttf */; };
 		4CD4E86A2BDB6F6A0007AD69 /* ESView+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4E8692BDB6F6A0007AD69 /* ESView+Ex.swift */; };
@@ -184,6 +185,7 @@
 		4CC5FFDF2E28C6E100551AEE /* ShapeRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeRoundedCorner.swift; sourceTree = "<group>"; };
 		4CC9F61E2CD4F82B001495D2 /* up.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = up.plist; sourceTree = "<group>"; };
 		4CCAE6D42E2FDC3F00CB4615 /* LogEventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEventService.swift; sourceTree = "<group>"; };
+		4CCAE6D62E307FB500CB4615 /* FacebookAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookAdView.swift; sourceTree = "<group>"; };
 		4CD44AB12E2F521200E4DDD0 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
 		4CD4E8662BDB6E960007AD69 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		4CD4E8692BDB6F6A0007AD69 /* ESView+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ESView+Ex.swift"; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 				4C53C2E52E0FE30400C93AFC /* ProfileView.swift */,
 				4C53C2DE2E0FC17500C93AFC /* NewView.swift */,
 				4CD44AB12E2F521200E4DDD0 /* NewItemView.swift */,
+				4CCAE6D62E307FB500CB4615 /* FacebookAdView.swift */,
 				4C53C2D42E0FC11D00C93AFC /* DashboardView.swift */,
 			);
 			path = Widgets;
@@ -905,6 +908,7 @@
 				4C2363982BDB49DE00A9D2A2 /* STCNotificationEventHandler.swift in Sources */,
 				4C0EC3FC2C1FD34200B2C864 /* ESLocationManager.swift in Sources */,
 				4CE8C9692DE864980074182B /* ESBaseViewController+Ex.swift in Sources */,
+				4CCAE6D72E307FB500CB4615 /* FacebookAdView.swift in Sources */,
 				4C53C2E62E0FE30400C93AFC /* ProfileView.swift in Sources */,
 				4C4E46FA2C0707F800413B27 /* ESError.swift in Sources */,
 				4C53C2E42E0FC94400C93AFC /* SizeBox.swift in Sources */,

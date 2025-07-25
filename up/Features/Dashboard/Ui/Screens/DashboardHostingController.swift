@@ -7,13 +7,15 @@
 
 import SwiftUI
 import AVFAudio
+import FBAudienceNetwork
+import FBSDKCoreKit
 
 class DashboardHostingController: ESBaseHostingController<DashboardView, DashboardObservable> {
     
     init() {
         let viewModel = DashboardObservable()
         viewModel.requestNews()
-        viewModel.requestVideo()
+//        viewModel.requestVideo()
         super.init(viewModel: viewModel, navBarView: nil, bottomView: nil) {
             DashboardView(viewModel: viewModel)
         }
@@ -34,5 +36,9 @@ class DashboardHostingController: ESBaseHostingController<DashboardView, Dashboa
         } catch {
             print("Failed to set audio session: \(error)")
         }
+        
+        FBAdSettings.setAdvertiserTrackingEnabled(true)
+        FBAdSettings.addTestDevice(FBAdSettings.testDeviceHash())
+        FBAdSettings.setLogLevel(.debug)
     }
 }

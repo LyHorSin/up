@@ -25,6 +25,16 @@ public var navBarHeight: CGFloat {
     return navigationBarHeight + safeTop
 }
 
+extension UIApplication {
+    public var rootController: UIViewController? {
+        return self.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .first?.windows
+            .first(where: \.isKeyWindow)?
+            .rootViewController
+    }
+}
+
 var statusBarHeight: CGFloat {
     UIApplication.shared.windows
         .first?

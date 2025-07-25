@@ -18,6 +18,9 @@ class News: Mappable {
     var author:String?
     var authorProfile:String?
     var medias:[String]?
+    var adId:String?
+    
+    init() {}
     
     required init?(map: Map) {}
     
@@ -35,9 +38,20 @@ class News: Mappable {
             return []
         }
 
-        let news = JSON(data)["data"]["item"].arrayValue.compactMap {
+        var news = JSON(data)["data"]["item"].arrayValue.compactMap {
             Mapper<News>().map(JSONObject: $0.dictionaryObject)
         }
+        
+        let ad = News()
+        ad.adId = "1445293286789279_1445293636789244"
+        ad.title = "Advertizing"
+        ad.author = "Ly Hor Sin"
+        ad.medias = [
+            "https://picsum.photos/\(screenHeight)/\(screenWidth)",
+            "https://picsum.photos/\(screenHeight)/\(screenWidth)",
+        ]
+        ad.description = "Facebook Audience Network ads help monetize your app by displaying targeted advertisements, such as banners or interstitials, directly within your app interface. Integrating FB ads into each tab or view allows you to generate revenue while maintaining user engagement, but it's important to ensure correct orientation settings and ad formats (like using FBAdView for inline banners) to avoid crashes or full-screen disruptions."
+        news.append(ad)
         
         return news
     }

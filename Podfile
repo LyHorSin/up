@@ -33,6 +33,7 @@ end
 
 def facebook
   pod 'FBSDKLoginKit'
+  pod 'FBAudienceNetwork'
 end
 
 def chat

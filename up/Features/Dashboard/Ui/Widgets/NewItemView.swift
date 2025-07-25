@@ -44,9 +44,7 @@ struct NewsItemView: View {
                 }
                 .padding(.top, 16)
                 
-                ProfileView(url: news.authorProfile,
-                            name: news.author,
-                            description: news.description)
+                ProfileView(news: news)
             }
         }
     }
